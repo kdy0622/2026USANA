@@ -1,6 +1,4 @@
 
-export type DistributorMode = 'NEW' | 'EXISTING';
-
 export interface GGDData {
   weeklyMaintenanceWeeks: number; // >= 150 CP 유지 주수
   growthCP: number;
@@ -27,23 +25,25 @@ export interface PromotionStatus {
     points: number;
     percent: number;
     qualified: boolean;
+    missing: string[];
   };
   lbr: {
     points: number;
     percent: number;
     qualified: boolean;
+    missing: string[];
   };
   ufi: {
     points: number;
     percent: number;
     qualified: boolean;
+    missing: string[];
   };
 }
 
 export interface UserPerformance {
-  mode: DistributorMode;
-  isDoublePromotion: boolean; // 더블 점수 프로모션 여부
+  isDoublePromotion: boolean; // 더블 점수 프로모션 여부 (UFI 한정)
   ggd: GGDData;
   lbr: LBRData;
-  ufi: UFIParams; // UFI 수기 입력 관리
+  ufi: UFIParams;
 }
